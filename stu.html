@@ -1,1 +1,52 @@
+<html>
+	<body>
+		<title>Student details</title>
+		<script type="text/javascript">
+		function student(name){
+			this.name=name;
+			this.sub=new Array((Math.random() * 100),(Math.random() * 100),(Math.random() * 100));
+		}
+			stu1=new student("john");
+			stu2=new student("alex");
+			stu3=new student("robert");
+			stu4=new student("harry");
+			stu5=new student("gary");
+			
+			var stud=[stu1,stu2,stu3,stu4,stu5];
+			for(var i=0;i<stud.length;i++)
+			{
+				var tot=0;
+				for(var j=0;j<3;j++)
+				{
+					stud[i].tot=tot+stud[i].sub[j];
+				}
+				stud[i].avg=stud[i].tot/3;
+			}
+			for(var k=0;k<stud.length;k++){
+				document.writeln(stud[k].name+" \t"+stud[k].tot+" \t"+stud[k].avg);
+			}
 
+			stud.sort(function(a,b){return b.tot-a.tot});
+			for(var i=0;i<stud.length;i++)
+			{
+				document.writeln(stud[i].name+" \t "+stud[i].tot);
+			}
+
+			stud.sort(function(a,b){return b.avg-a.avg});
+			for(var k=0;k<stud.length;k++)
+			{
+				document.writeln(stud[k].name+" \t "+stud[k].avg);
+			}
+
+			stud.sort(function(a,b){
+				if(a.name<b.name)
+					return -1
+				else
+					return 1
+				});
+			for(var k=0;k<stud.length;k++){
+				doucument.writeln(stud[k].name+" \t "+stud[k].avg+" \t "+stud[k].tot);
+			}
+		</script>
+	</body>
+</html>
